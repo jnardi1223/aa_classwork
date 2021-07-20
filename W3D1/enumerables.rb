@@ -39,3 +39,23 @@ return_value = [1, 2, 3].my_each do |num|
   
   p return_value  # => [1, 2, 3]
 
+
+def my_select(&prc)
+  new_arr = []
+    self.my_each do |results|
+        new_arr << results if prc.call(results) 
+    end 
+    e
+    
+    
+    
+   new_arr 
+end 
+
+
+
+
+a = [1, 2, 3]
+a.my_select { |num| num > 1 } # => [2, 3]
+a.my_select { |num| num == 4 } # => []
+
