@@ -29,30 +29,28 @@ class PolyTreeNode
     end 
 
     def dfs(target_value)
-        return nil if self.children.empty? 
-        stack = [self]
-        return self if self.value == target_value
+        return self if self.value== target_value
 
-        stack[-1].children.each do |child|
-            stack << child 
-            if stack[-1].dfs(target_value) == nil 
-                stack.pop 
-            elsif stack[-1].dfs(target_value) == target_value
-                return stack[-1].dfs(target_value) 
-            end
-            
-        end 
+        self.children.each do |child|
+            result= child.dfs(target_value)
+            return result unless result== nil
+        end
+        nil
 
+        # return nil if self.children.empty? 
+        # stack = [self]
+        # return self if self.value == target_value
 
-
-        # self.children.each do |child| 
-        #     if !child.children.empty? 
-        #         child.dfs(target_value) 
-        #     else 
-        #         return nil  
-        #     end 
+        # stack[-1].children.each do |child|
+        #     stack << child 
+        #     if stack[-1].dfs(target_value) == nil 
+        #         stack.pop 
+        #     elsif stack[-1].dfs(target_value) == target_value
+        #         return stack[-1].dfs(target_value) 
+        #     end
         # end 
 
+        #the reason the above code may not work is due to us checking the children first (or at least putting them into the stack first) before we put in children of each children. This is not depth first search.
     end 
     
     def bfs(target_value)
