@@ -6,26 +6,37 @@ class Employee
         @name = name 
         @title = title 
         @salary = salary
-        @boss = boss
+        self.boss = boss
     end
 
     def bonus(multiplier)
         @bonus = @salary * multiplier
     end 
 
+    def boss=(boss)
+        @boss = boss
+
+        if !@boss.nil?
+            @boss.employees << self
+        end
+    end
 
 end
 
 class Manager < Employee
 
+    attr_reader :employees
+
     def initialize(name, title, salary, boss= nil)
         super
-        @employees = [self]
+        @employees = []
     end
 
     def bonus(multiplier)
-        sum = 0
+        return 0 if employees.empty?
+
         @employees.each do |employee|
+            
         end
     end
 
@@ -36,4 +47,4 @@ darren = Manager.new("Darren", "TA Manager", 10000, ned)
 shawna = Employee.new("Shawna", "TA", 7000, darren)
 david = Employee.new("David", "TA", 7000, darren)
 # p ned.bonus(5)
-p shawna.boss
+p david.boss
