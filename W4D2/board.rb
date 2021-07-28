@@ -5,8 +5,19 @@ class Board
     attr_reader :board
 
     def initialize
-        @board = Array.new(8) { Array.new(8, :x) }
+        @board = Array.new(8) { Array.new(8, "_") }
+        self.populate
     end 
+
+    def populate
+        @board.each.with_index do |row, idx|
+            if idx == 0 || idx == 1 || idx == 6 || idx == 7
+            row.each do |spot|
+                    spot = :X
+                end
+            end
+        end
+    end
 
     def move_piece(start_pos, end_pos)
         raise if start_pos == nil 
@@ -23,5 +34,8 @@ class Board
         @board[row][col] = value 
     end
 
-
 end 
+
+b = Board.new
+# p b.populate
+p b
