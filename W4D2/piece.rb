@@ -3,10 +3,6 @@
 class Piece 
 
     def initialize 
-        # @nil = Null_piece.instance 
-        @queen
-        @rook
-        @knight 
         @symbol = :P
     end
 
