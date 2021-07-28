@@ -42,19 +42,20 @@ class Manager < Employee
         until queue.empty?
             current_employee = queue.shift
             sum += current_employee.salary
-            if current_employee.employees != []
+            if current_employee.class == Manager 
                 current_employee.employees.each { |employee| queue << employee }
             end
         end
             
-        # sum * multiplier
+        sum * multiplier
     end
 
 end 
 
-ned = Manager.new("Ned", "founder", 50000)
-darren = Manager.new("Darren", "TA Manager", 10000, ned)
-shawna = Employee.new("Shawna", "TA", 7000, darren)
-david = Employee.new("David", "TA", 7000, darren)
-darren.bonus(3)
-# p david.boss
+ned = Manager.new("Ned", "founder", 1000000000)
+darren = Manager.new("Darren", "TA Manager", 78000, ned)
+shawna = Employee.new("Shawna", "TA", 12000, darren)
+david = Employee.new("David", "TA", 10000, darren)
+p ned.bonus(5)
+p darren.bonus(4) # => 88_000
+p david.bonus(3) # => 30_000
