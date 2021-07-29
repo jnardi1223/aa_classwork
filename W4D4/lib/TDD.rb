@@ -67,12 +67,15 @@ class Towers
 
     ALPHABET = ("a".."z").to_a
 
+    attr_reader :num_discs, :board, :discs, :first_stack
+
     def initialize(num_discs)
-        @num_discs
-        @board = Array.new(3) Array.new(num_discs)
+        @num_discs = num_discs
+        @board = Array.new(3){Array.new(num_discs)}
         @discs = ALPHABET[0...num_discs]
         @first_stack = @board.sample 
     end 
+
 
     def move
         p "Which stack do you want to move from?"
@@ -106,3 +109,10 @@ class Towers
     end 
 
 end 
+
+
+# t1 = Towers.new(5)
+# p t1.board
+# p t1.num_discs
+# p t1.populate
+# p t1.move
