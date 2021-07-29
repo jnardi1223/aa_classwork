@@ -56,3 +56,53 @@ end
 # p my_uniq([1, 2, 3])
 # p two_sum([-1, 0, 2, -2, 1])
 # p stock_picker([300,200,100,260,350,320])
+
+# towers of Hanoi 
+
+# three towers that represent arrays 
+# an array of discs 
+# board class that initializes 3 towers 
+
+class Towers
+
+    ALPHABET = ("a".."z").to_a
+
+    def initialize(num_discs)
+        @num_discs
+        @board = Array.new(3) Array.new(num_discs)
+        @discs = ALPHABET[0...num_discs]
+        @first_stack = @board.sample 
+    end 
+
+    def move
+        p "Which stack do you want to move from?"
+        input1 = gets.chomp.to_i 
+        arr1 = @board[input1]
+
+        p "Which stack would do you want to move to?"
+        input2 = gets.chomp.to_i 
+        arr2 = @board[input2]
+
+        if ALPHABET.index(arr1[0]) < ALPHABET.index(arr2[0])
+            move = arr1.shift 
+            arr2.unshift(move)
+        end 
+    end
+    
+    def populate
+         @discs.each do |disc|
+            @first_stack << disc 
+        end 
+    end 
+
+    def won?
+        @board.each do |stack|
+            if stack.length == @num_discs && stack.object_id != @first_stack.object_id
+                return true 
+            else
+                return false 
+            end
+        end 
+    end 
+
+end 

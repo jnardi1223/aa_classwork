@@ -30,6 +30,7 @@ describe "#two_sum" do
   it "finds all pair indices where elements sum to 0" do 
     expect(two_sum([-1, 0, 2, -2, 1])).to eq([[0, 4], [2, 3]])
   end 
+end 
 
 
   describe "#my_transpose" do
@@ -48,7 +49,7 @@ describe "#two_sum" do
 
 
   describe "#stock_picker" do 
-    let(:array_1) {[300,200,100,260,350,320]}
+    let(:array_1) {[300,300,200,260,350,320]}
 
     it "accepts an array" do 
       stock_picker(array_1)
@@ -62,7 +63,6 @@ describe "#two_sum" do
   end
   
 
-end
 
 
 
