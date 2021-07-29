@@ -51,3 +51,10 @@ end
 # p b.move_piece([1, 0], [2, 0])
 # p b
 
+
+sorted = true
+while sorted
+sorted = false
+
+sorted = true
+

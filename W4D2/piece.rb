@@ -62,7 +62,7 @@ class Null_piece < Piece
 end
 
 class King < Piece
-
+  include Stepable 
 end
 
 class Queen < Piece
@@ -79,12 +79,33 @@ end
 
 module Stepable
    
-    def moves 
-    #    possible_moves = [[1, 1], [1, -1], [-1, 1] [-1, -1] [1, 0], [-1, 0], [0, 1], [0 -1]] 
-        possible_moves = [0, 1, -1]
-        b = [1, -1]
-        possible_moves.product(b) 
+    def moves(pos)
+      valid = []
+      possible_moves = [[1, 1], [1, -1], [-1, 1] [-1, -1] [1, 0], [-1, 0], [0, 1], [0 -1]]
 
+      possible_moves.each do |move|
+          valid << [move[0] + pos[0] , move[1] + pos[1]]
+        end
+
+      valid.select { |el| (el[0] >= 0 && el[0] < 8) && (el[1] >= 0 && el[1] < 8) && (el.empty?) }
     end
 
 end 
+
+module Slidable
+        # a = [0, 1, -1]
+        # b = [0, 1, -1]
+        # possible_moves = a.product(b)
+    def diag_moves(pos)
+        a = (0..7).to_a
+        b = (0..7).to_a
+        possible_moves = a.product(b)
+        possible_moves
+
+    end
+
+    def linear_moves(pos)
+
+    end
+
+end
