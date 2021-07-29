@@ -1,0 +1,8 @@
+1) Why are specs printing out twice?
+
+2) expect(my_uniq(array_1)).not_to receive(:uniq)
+    - how do we check if Array#uniq is not called
+    on the variable array_1?
+
+
+
