@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Ratatouille" content="Easy to make plant based ratatouille">
+    <title>Ratatouille</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='script.js'></script>
+</head>
+
+
+<div class="header">
+    <h1><img src="Appacademylogo.jpeg" alt="Appacademy logo"></h1>
+        
+        <div class="topnav">
+        <a href="#Description">Description</a></li> <br>
+        <a href="#Ingredients">Ingredients</a></li> <br>
+        <a href="#Directions">Directions</a></li> 
+        </div>
+        
+        <br>
+        
+        <aside>
+            <a name="Ingredients">Ingredients</a>
+            <ul>
+                <li>1 tablespoon olive oil</li>
+                <li>1 large onion (diced)</li>
+                <li>1 bay leaf</li>
+                <li>4 tablespoons dry red wine</li>
+                <li>1/2 cup tomato juice</li>
+                <li>4 to 5 cloves garlic</li>
+                <li>1 tablespook dried marjoram</li>
+                <li>1 1/2 teaspoon salt</li>
+                <li>1/2 teaspoon black pepper</li>
+                <li>1 zucchini (sliced)</li>
+                <li>1 green bell pepper</li>
+                <li>1 red bell pepper</li>
+                <li>1 eggplant</li>
+                <li>2 large tomatoes</li>
+                <li>5 tablespoons tomato paste</li>
+            </ul>
+        </aside>
+
+</div>
+
+<body>
+    <section>
+    <h1>Ratatouille</h1>
+    
+    <figure>
+        <img src="ratatouille.jpeg" alt="Ratatouille">
+        <figcaption>
+            <a href="https://en.wikipedia.org/wiki/Ratatouille">Learn more about Ratatouille</a>
+        </figcaption>
+    </figure>
+
+    <h2><a name="Description">Description</a></h2>
+        <p>Ratatouille, a French eggplant and vegetable dish, is usually made vegetarian but is often served with meat. 
+            We can make this easy vegetarian and vegan version and serve it with rice or pasta. </p>
+
+    <h2> <a name="Directions">Directions</a></h2>
+        <ol>
+            <li>Gather the ingredients</li>
+            <li>Heat the olive oil in a large saucepan over medium heat. Saute the onion until translucent, about 5 to 7 minutes</li>
+            <li>Add the bay leaf, red wine, and tomato juice and stir to combine well.</li>
+            <li>Then add the garlic, basil, marjoram, oregano, rosemary, salt, and pepper and mix until well blended. Cover the saucepan and allow to simmer for 10 minutes over low heat.</li>
+            <li>Add the zucchini and the green and red bell peppers, stir well, cover, and simmer for another 5 minutes.</li>
+            <li>Add the eggplant, tomatoes, and tomato paste and stir again to combine everything together well. Cover the pan and continue to simmer until the vegetables are tender, about 8 more minutes, stirring occasionally.</li>
+            <li>Once the veggies are tender and cooked, remove the pan from the heat immediately to make sure the vegetables don't overcook and become soggy. Serve your vegan ratatouille over rice or pasta with French bread.</li>
+        </ol>
+        
+    
+    </section>
+      
+    <section id ="Reviews">
+        
+        <h2>Reviews</h2>
+
+        <form action="/reviews" method="post">
+            <label for="Name">Name</label>
+            <input id="Name" type="text" name="Name">
+            <label for ="rating">Rating</label>
+            
+            1
+            <input type="radio" name="rating" value="1" checked>
+            2
+            <input type="radio" name="rating" value="2" checked>
+            3
+            <input type="radio" name="rating" value="3" checked>
+            4
+            <input type="radio" name="rating" value="4" checked>
+            5
+            <input type="radio" name="rating" value="5" checked>
+        
+
+
+            <select name="Expertise " id="Expertise ">
+            <option value="Select Cooking Expertise">Select Cooking Expertise</option>
+            <option value="Sometimes Cook">Sometimes Cook</option>
+            <option value="Cook Everyday">Cook Everyday</option>
+            <option value="Cooking is a hobby">Cooking is a hobby</option>
+            <option value="Professtional Chef">Professtional Chef</option>
+            </select>    
+
+            <label>
+                Review
+                <textarea name="review" cols="30" rows="10"></textarea>
+            </label>
+            <input type="submit" value="Sumit Review">
+        
+        </form>
+    </section>
+
+    <!-- This recipe was orginally "the spruce eats" at <a href="https://www.thespruceeats.com/easy-vegan-ratatouille-recipe-3377144"></a>  poseted by  -->
+    <footer>
+        <p><a href="https://www.thespruceeats.com/easy-vegan-ratatouille-recipe-3377144">Recipe Originally Found Here</a> </p>
+    </footer>
+</body>
+</html>
