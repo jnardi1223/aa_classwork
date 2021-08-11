@@ -12,22 +12,14 @@ require_relative './sqlzoo.rb'
 
 def example_sum
   execute(<<-SQL)
-    SELECT
-      SUM(population)
-    FROM
-      countries
+   
   SQL
 end
 
 def continents
   # List all the continents - just once each.
   execute(<<-SQL)
-    SELECT 
-      continent
-    FROM 
-      countries
-    GROUP BY 
-      continent
+   
 
   SQL
 end
@@ -35,12 +27,7 @@ end
 def africa_gdp
   # Give the total GDP of Africa.
   execute(<<-SQL)
-    SELECT 
-      SUM(gdp)
-    FROM 
-      countries 
-    WHERE 
-      continent = 'Africa'
+  
   SQL
 end
 

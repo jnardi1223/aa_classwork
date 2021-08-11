@@ -24,12 +24,7 @@ require_relative './sqlzoo.rb'
 
 def example_query
   execute(<<-SQL)
-    SELECT
-      *
-    FROM
-      movies
-    WHERE
-      title = 'Doctor No'
+   
   SQL
 end
 
