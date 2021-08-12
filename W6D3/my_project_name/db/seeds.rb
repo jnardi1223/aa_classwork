@@ -21,3 +21,7 @@ a3 = Artwork.create(title: "Birth of Venus", artist_id: da.id, img_url: "https:/
 ArtworksShare.create(artwork_id: a1.id, viewer_id: d.id)
 ArtworksShare.create(artwork_id: a2.id, viewer_id: da.id)
 ArtworksShare.create(artwork_id: a3.id, viewer_id: j.id)
+
+Comment.create(user_id: j.id, artwork_id: a1.id, body: "this is a great piece" )
+Comment.create(user_id: d.id, artwork_id: a1.id, body: "this is a great piece" )
+Comment.create(user_id: da.id, artwork_id: a1.id, body: "this is a great piece")

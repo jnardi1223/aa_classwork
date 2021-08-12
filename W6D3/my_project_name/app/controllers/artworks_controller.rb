@@ -2,11 +2,16 @@ class ArtworksController < ApplicationController
     def index 
         # @artworks = Artwork.all 
         # render json: @artworks 
-        a = Artwork.find_by(id: params[:id])
-        u = a.artist
-        s = a.shared_viewers
+        if params[:artwor][:id]
+            a = Artwork.find_by(id: params[:id])
+            u = a.artist
+            s = a.shared_viewers
+            render json: [u, s]
+        else 
+           @artworks = Artwork.all 
+           render json: @artworks 
+        end 
 
-        render json: [u, s]
     end 
 
     def show 
