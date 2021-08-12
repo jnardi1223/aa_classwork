@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         # @user = users.find(param[:id])
         # render json: @user 
         if @user
-            render json: @user
+            render json: [@user, @user.artworks, @user.artwork_shares[0..params[:limit].to_i]]
         else 
             render json: {error: 'User does not exist'}
         end 
