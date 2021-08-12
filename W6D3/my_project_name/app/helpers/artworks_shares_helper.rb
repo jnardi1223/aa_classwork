@@ -1,0 +1,2 @@
+module ArtworksSharesHelper
+end

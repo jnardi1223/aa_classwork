@@ -1,7 +1,12 @@
 class ArtworksController < ApplicationController
     def index 
-        @artworks = Artwork.all 
-        render json: @artworks 
+        # @artworks = Artwork.all 
+        # render json: @artworks 
+        a = Artwork.find_by(id: params[:id])
+        u = a.artist
+        s = a.shared_viewers
+
+        render json: [u, s]
     end 
 
     def show 
