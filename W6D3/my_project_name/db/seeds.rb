@@ -22,6 +22,22 @@ ArtworksShare.create(artwork_id: a1.id, viewer_id: d.id)
 ArtworksShare.create(artwork_id: a2.id, viewer_id: da.id)
 ArtworksShare.create(artwork_id: a3.id, viewer_id: j.id)
 
-Comment.create(user_id: j.id, artwork_id: a1.id, body: "this is a great piece" )
-Comment.create(user_id: d.id, artwork_id: a1.id, body: "this is a great piece" )
-Comment.create(user_id: da.id, artwork_id: a1.id, body: "this is a great piece")
+c1 = Comment.create(user_id: j.id, artwork_id: a1.id, body: "this is a great piece" )
+c2 = Comment.create(user_id: d.id, artwork_id: a1.id, body: "this is a great piece" )
+c3 = Comment.create(user_id: da.id, artwork_id: a1.id, body: "this is a great piece")
+
+Like.create(user_id: j.id,  likeable_id: a2.id, likeable_type: "Artwork")
+Like.create(user_id: j.id,  likeable_id: a1.id, likeable_type: "Artwork")
+Like.create(user_id: j.id,  likeable_id: a3.id, likeable_type: "Artwork")
+Like.create(user_id: j.id,  likeable_id: c1.id, likeable_type: "Comment")
+Like.create(user_id: j.id,  likeable_id: c2.id, likeable_type: "Comment")
+Like.create(user_id: j.id,  likeable_id: c3.id, likeable_type: "Comment")
+
+
+Like.create(user_id: d.id,  likeable_id: a2.id, likeable_type: "Artwork")
+Like.create(user_id: d.id,  likeable_id: a1.id, likeable_type: "Artwork")
+Like.create(user_id: d.id,  likeable_id: a3.id, likeable_type: "Artwork")
+Like.create(user_id: d.id,  likeable_id: c1.id, likeable_type: "Comment")
+Like.create(user_id: d.id,  likeable_id: c2.id, likeable_type: "Comment")
+Like.create(user_id: d.id,  likeable_id: c3.id, likeable_type: "Comment")
+-   

@@ -1,14 +1,12 @@
 class CommentsController < ApplicationController
     
     def index 
-        if params[:id]
-            if self.class == User 
-                user = User.find(id: params[:id])
-                render json: user.comments 
-            elsif self.class == Artwork 
-                artwork = Artwork.find(id: params[:id])
-                render json: artwork.comments 
-            end 
+        if params[:user_id]
+            user = User.find_by(id: params[:user_id])
+            render json: user.comments 
+        elsif params[:artwork_id]
+            artwork = Artwork.find(id: params[:artwork_id])
+            render json: artwork.comments  
         else 
             @comments = Comment.all 
             render json: @comments 
@@ -37,3 +35,9 @@ class CommentsController < ApplicationController
         params.require(:comment).permit(:user_id, :artwork_id, :body)
     end
 end
+
+# params = {id: 1, }
+# three ways to get params
+# 1) wildcard (:id)
+# 2) query string (?)
+# 3) body

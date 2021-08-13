@@ -6,8 +6,14 @@ class UsersController < ApplicationController
 
     def index 
         # render plain: "I'm in the index action!"
-        @users = User.all 
-        render json: @users 
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            render json: @user
+        else
+            @users = User.all 
+            render json: @users 
+        end
+        # render json: params
     end 
 
     def show 
