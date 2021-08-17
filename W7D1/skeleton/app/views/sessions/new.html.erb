@@ -1,15 +1,14 @@
-<h1>Cat Rental Agency Dot Com!</h1>
-
-<h2>Create an account today to rent your own kitty cat</h2>
+<h1>Log in</h1>
 
 
-<form action="<%= users_url %>" method="POST">
-    <label for='username' >Username</label>
+
+<form action="<%= session_url %>" method="post">
+    <label for='username'></label>Username</label>
     <input type="text" name="user[username]" id="username" value="<%= @user.username %>">
 
     <label for='password' >Password</label>
     <input type="password" name="user[password]" id="password" value="<%= @user.password %>">
 
-    <input type="submit" value='Create Account'>
+    <input type="submit" value='Log in'
 
 </form>

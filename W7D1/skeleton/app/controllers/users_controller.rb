@@ -9,14 +9,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save!
-      redirect_to user_url(@user)
+      redirect_to cats_url
     else
-      render :new
+      redirect_to new_user_url 
     end
   end
 
   private
   def user_params
-    params.require(:user).require(:username, :session_token, :password)
+    params.require(:user).require(:username, :password)
   end
 end
