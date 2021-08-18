@@ -32,4 +32,28 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+ describe 'GET #index' do 
+    it 'renders the index template' do 
+      get :index 
+      expect(response).to render_template(:index)
+    end 
+ end 
+    
+ describe 'GET #show' do 
+
+  it 'renders the show template' do 
+      get :show 
+      expect(response).to render_template(:show)
+    end 
+
+  it 'redirects to users show page' do 
+    get :show 
+    user = User.find_by(username: 'Capy')
+    expect(response).to redirect_to(user_url(user))
+  end 
+ end 
+
+
 end
+
