@@ -20,10 +20,15 @@ RSpec.describe User, type: :model do
   #Validations
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:password_digest) }
+    
+  subject(:test) { FactoryBot.create(:user) }
+  it { should validate_presence_of(:session_token) }
   
-
-  # subject(:test) { FactoryBot.create(:user) }
-  # it { should validate_presence_of(:session_token) }
-
+  describe '::find_by_credentials' do 
+      it 'should return the user with that username if they exist' do 
+        expect(test.username).to eq 'Capy'
+        expect(test.password).to eq 'password'
+      end
+    end 
 
 end
