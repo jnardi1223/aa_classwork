@@ -1,0 +1,8 @@
+<h1>Edit Band Name</h1>
+
+
+<form action='/band/edit' method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <label for="name">Name</label>
+    <input id="name" type="text" name="band[name]" value="<%= @band.name%>">
+</form> 

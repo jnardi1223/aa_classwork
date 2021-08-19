@@ -1,14 +1,23 @@
 <h1>Cat Rental Agency Dot Com!</h1>
 
-<h2>Create an account today to rent your own kitty cat</h2>
 
 
 <form action="<%= users_url %>" method="POST">
+    <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+
     <label for='username' >Username</label>
     <input type="text" name="user[username]" id="username" value="<%= @user.username %>">
+    
+    <br>
 
     <label for='password' >Password</label>
     <input type="password" name="user[password]" id="password" value="<%= @user.password %>">
+    
+    <br>
 
     <input type="submit" value='Create Account'>
 
