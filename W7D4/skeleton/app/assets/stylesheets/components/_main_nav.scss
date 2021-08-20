@@ -1,6 +1,8 @@
 .main-nav {
   display: flex; 
   justify-content: space-between; 
+  padding: 10px;
+
 }
 
 .left-nav > ul,
@@ -17,13 +19,14 @@
      padding: 10px;
      font-family: sans-serif;
      font-weight: bold; 
+     font-size: 10px;
      cursor: pointer;
-     transition: background-color rgb(184, 178, 178) 2s;
+     text-transform: uppercase;
     }
   }
 
   span {
-
+    margin: 10px;
   }
 }
 
@@ -32,20 +35,20 @@
   > ul {
 
     > li {
-  
+      
     }
 
     > li:last-of-type {
-  
+      position: relative;
     }
   }
   
   i {
-
+    font-size: 20px;
   }
 }
 
 .left-nav > ul > li:hover,
 .right-nav > ul > li:last-of-type:hover {
-
+  background-color: $lightest-gray;
 }
