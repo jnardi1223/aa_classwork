@@ -1,0 +1,28 @@
+.section-nav{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.section-nav > ul {
+  display: flex;
+  align-items: center;
+}
+
+.section-nav{
+  > ul{
+      li{
+        padding: 10px;
+        font-family: sans-serif;
+        font-weight: bold; 
+        font-size: 12px;
+        cursor: pointer;      
+      }
+      a{
+        font-family: sans-serif;
+        font-weight: bold; 
+        font-size: 12px; 
+        text-transform: uppercase ;       
+      }
+  }
+}
