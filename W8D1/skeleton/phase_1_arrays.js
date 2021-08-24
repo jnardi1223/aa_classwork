@@ -8,6 +8,8 @@ Array.prototype.myUniq = function () {
     return newArray;
 }
 
-arr = [1,2,2,3,3,3]
-console.log(arr.myUniq());
+arr1 = [1,2,2,3,3,3]
+console.log(arr1.myUniq());
 
+Array.prototype.twoSum = function () { 
+    let newArray = [];
