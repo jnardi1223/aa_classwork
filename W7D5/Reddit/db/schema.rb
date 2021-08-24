@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_171710) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
-    t.string "url"
+    t.string "url0"
     t.text "content"
     t.integer "author_id", null: false
     t.integer "sub_id", null: false
