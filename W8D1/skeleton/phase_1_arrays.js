@@ -26,3 +26,22 @@ Array.prototype.twoSum = function () {
 arr2 = [1,2,-2,3,3,-3]
 console.log(arr2.twoSum());
 
+Array.prototype.mytranspose = function () {
+    let newArray = Array.from(
+        { length: this[0].length }
+        ()=> Array.from ({length: this.length})
+        
+    ); 
+
+}
+
+
+
+arr3 = [[1, 2], [3, 4], [5, 6]]
+console.log(arr3.mytranspose());
+
+
+
+let newArray = Array.from(
+    { length: arr[0].length };
+    () => Array.from ({length: arr.length}));
