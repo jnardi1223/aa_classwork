@@ -1,5 +1,8 @@
 Function.prototype.myBind = (context) => {
-    
+    let that = this;
+    return function () {
+      return that.apply(context);
+    }
 }
 
 class Lamp {
