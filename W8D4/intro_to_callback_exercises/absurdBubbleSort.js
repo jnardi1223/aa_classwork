@@ -12,22 +12,38 @@ function askIfGreaterThan(el1, el2, callback) {
         } else { 
             return callback(false); 
         }
-
     })
 }
 
-console.log(askIfGreaterThan(15, 24, number => {
-    return number;
-})); 
+function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
 
-// function absurdBubbleSort(arr, sortCompletion) { 
-//     let done = false 
+    if (i < arr.length - 1) {
+        askIfGreaterThan(arr[i], arr[i + 1], (isGreaterThan) => {
+            if (isGreaterThan) {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                madeAnySwaps = true;
+            }
+            innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop); 
+        });
+    } else if (i === arr.length - 1) {
+        outerBubbleSortLoop(madeAnySwaps);
+    }
+}
 
-//     while (!done) { 
-//         done = true; 
+function absurdBubbleSort(arr, sortCompletionCallback) { 
+    function outerBubbleSortLoop(madeAnySwaps) {
+        if (madeAnySwaps === true) {
+            return innerBubbleSortLoop(arr, 0, false, outerBubbleSortLoop);
+        } else {
+            return sortCompletionCallback(arr);
+        }
+    }
+    outerBubbleSortLoop(true);
+}
 
-//         for (let i = 0; i < arr.length; i++) { 
- 
-//         }
-//     }
-// }
+absurdBubbleSort([3, 2, 1, 7, 9, 5, 4, 1], function(arr) {
+    console.log("Sorted array: " + JSON.stringify(arr));
+    reader.close();
+  });

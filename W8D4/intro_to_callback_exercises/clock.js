@@ -5,7 +5,7 @@ class Clock {
         this.minutes = date.getMinutes();
         this.seconds = date.getSeconds();
         this.printTime();
-        // this._tick.bind(this);
+        
         const selfTick = this._tick.bind(this)
         
         setInterval(function () {
