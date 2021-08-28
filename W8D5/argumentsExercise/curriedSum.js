@@ -17,11 +17,11 @@ function curriedSum(numArgs) {
     // return _curriedSum; 
 }
 
-const sum = curriedSum(4);
-console.log(sum(5)(30)(20)(1)); 
+// const sum = curriedSum(4);
+// console.log(sum(5)(30)(20)(1)); 
 
 
-Function.prototype.curry = function(numArgs) { 
+Function.prototype.curry = function(numArgs, ctx) { 
     let args = []; 
     let fn = this; 
     
@@ -29,7 +29,8 @@ Function.prototype.curry = function(numArgs) {
         args.push(arg); 
         if (args.length === numArgs) { 
             // args.forEach((ele) => {
-                fn.apply(args); 
+                return fn.apply(ctx, args); 
+                // return fn(...args)
             // })
         } else { 
             return _curriedFn; 
@@ -38,3 +39,19 @@ Function.prototype.curry = function(numArgs) {
     return _curriedFn; 
 
 }
+
+function multiply (...nums) {
+    let total = 1;
+    nums.forEach((n) => {total *= n})
+    // console.log(this);
+    return total;
+    
+}
+function Cat(name) {
+    this.name =name;
+};
+const cat1 = new Cat('fluppy');
+
+let mult = multiply.curry(4)
+console.log(mult(2)(3)(4)(5));
+// console.log(multiply.curry(4, cat1)(2)(3)(4)(5));
