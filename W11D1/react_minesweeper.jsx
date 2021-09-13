@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Game from './components/Game.jsx'
+import Game from './components/Game';
+import Tile from './components/Tile';
 
-function Root() { 
+
+function Root(){ 
   return(
         <div className="root">
           <Game />
+          <Tile />
         </div>
   )
 }
