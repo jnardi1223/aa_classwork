@@ -1,7 +1,13 @@
 import React from "react";
+import * as minesweeper from "../minesweeper";
 
 class Tile extends React.Component {
+  constructor(props) {
+    super(props); 
+  }
+
   
+
   render() {
     return (
       <div>

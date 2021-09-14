@@ -45,19 +45,55 @@ var Board = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Board);
 
   function Board(props) {
+    var _this;
+
     _classCallCheck(this, Board);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.renderRows = _this.renderRows.bind(_assertThisInitialized(_this));
+    _this.renderTiles = _this.renderTiles.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Board, [{
+    key: "renderRows",
+    value: function renderRows() {
+      var _this2 = this;
+
+      var board = this.props.board.grid; //this gives us 2d Array 
+
+      var rows = board.map(function (row, idx) {
+        //each subArray
+
+        /*#__PURE__*/
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: idx
+        }, _this2.renderTiles(row, idx));
+      });
+      return rows;
+    }
+  }, {
+    key: "renderTiles",
+    value: function renderTiles(row, idx) {
+      var _this3 = this;
+
+      var board = this.props.board;
+      var tiles = row.map(function (tile, idx2) {
+        /*#__PURE__*/
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: idx * board.gridSize + idx2,
+          update: _this3.props.updateGame,
+          tile: tile
+        });
+      });
+      return tiles;
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "board"
-      }, this.props.board.map(function (row, idx1) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "row.map((tile, idx2)=>(", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Tile__WEBPACK_IMPORTED_MODULE_1__["default"], null), "))");
-      }));
+      }, this.renderRows());
     }
   }]);
 
@@ -156,6 +192,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _minesweeper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../minesweeper */ "./minesweeper.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -180,15 +217,16 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Tile = /*#__PURE__*/function (_React$Component) {
   _inherits(Tile, _React$Component);
 
   var _super = _createSuper(Tile);
 
-  function Tile() {
+  function Tile(props) {
     _classCallCheck(this, Tile);
 
-    return _super.apply(this, arguments);
+    return _super.call(this, props);
   }
 
   _createClass(Tile, [{
@@ -236,6 +274,7 @@ var Tile = /*#__PURE__*/function () {
   _createClass(Tile, [{
     key: "adjacentBombCount",
     value: function adjacentBombCount() {
+      //return the number of bombs touching 
       var bombCount = 0;
       this.neighbors().forEach(function (neighbor) {
         if (neighbor.bombed) {
@@ -248,10 +287,11 @@ var Tile = /*#__PURE__*/function () {
     key: "explore",
     value: function explore() {
       if (this.flagged || this.explored) {
+        //if both are true show the tile
         return this;
       }
 
-      this.explored = true;
+      this.explored = true; //we enter this either are false
 
       if (!this.bombed && this.adjacentBombCount() === 0) {
         this.neighbors().forEach(function (tile) {
@@ -295,7 +335,8 @@ var Tile = /*#__PURE__*/function () {
 
   return Tile;
 }();
-Tile.DELTAS = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
+Tile.DELTAS = [[-1, -1], [-1, 0], [-1, 1], [0, -1], //each one of the surrounding tiles
+[0, 1], [1, -1], [1, 0], [1, 1]];
 var Board = /*#__PURE__*/function () {
   function Board(gridSize, numBombs) {
     _classCallCheck(this, Board);

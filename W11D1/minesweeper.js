@@ -7,7 +7,7 @@ export class Tile {
       this.flagged = false;
   }
 
-  adjacentBombCount() {
+  adjacentBombCount() { //return the number of bombs touching 
     let bombCount = 0;
     this.neighbors().forEach(neighbor => {
       if (neighbor.bombed) {
@@ -18,11 +18,11 @@ export class Tile {
   }
 
   explore() {
-    if (this.flagged || this.explored) {
+    if (this.flagged || this.explored) { //if both are true show the tile
       return this;
     }
 
-    this.explored = true;
+    this.explored = true; //we enter this either are false
     if (!this.bombed && this.adjacentBombCount() === 0) {
       this.neighbors().forEach(tile => {
         tile.explore();
@@ -57,7 +57,7 @@ export class Tile {
   }
 }
 
-Tile.DELTAS = [[-1, -1], [-1,  0], [-1,  1], [ 0, -1],
+Tile.DELTAS = [[-1, -1], [-1,  0], [-1,  1], [ 0, -1], //each one of the surrounding tiles
              [ 0,  1], [ 1, -1], [ 1,  0], [ 1,  1]];
 
 export class Board {
