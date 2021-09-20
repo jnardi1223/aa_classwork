@@ -4,13 +4,11 @@ import { requestPokemon } from '../../actions/pokemon_actions';
 
 class PokemonDetail extends React.Component {
     componentDidMount() {
-        requestPokemon()
+        //requestPokemon()
     }
 
     render() {
-        return(
-
-        )
+        return null
     }
 }
     
