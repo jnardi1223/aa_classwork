@@ -1,5 +1,18 @@
 import React from 'react'; 
+import { requestPokemon } from '../../actions/pokemon_actions';
 
-export const PokemonDetail = () => {
-    
+
+class PokemonDetail extends React.Component {
+    componentDidMount() {
+        requestPokemon()
+    }
+
+    render() {
+        return(
+
+        )
+    }
 }
+    
+
+export default PokemonDetail; 

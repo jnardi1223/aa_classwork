@@ -90,20 +90,30 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/pokemon_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_ALL_POKEMON, receiveAllPokemon, requestAllPokemon */
+/*! exports provided: RECEIVE_ALL_POKEMON, RECEIVE_POKEMON, receiveAllPokemon, receivePokemon, requestAllPokemon, requestPokemon */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_POKEMON", function() { return RECEIVE_ALL_POKEMON; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POKEMON", function() { return RECEIVE_POKEMON; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllPokemon", function() { return receiveAllPokemon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePokemon", function() { return receivePokemon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllPokemon", function() { return requestAllPokemon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPokemon", function() { return requestPokemon; });
 /* harmony import */ var _util_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/api_util */ "./frontend/util/api_util.js");
 
 var RECEIVE_ALL_POKEMON = "RECEIVE_ALL_POKEMON";
+var RECEIVE_POKEMON = "RECEIVE_POKEMON";
 var receiveAllPokemon = function receiveAllPokemon(pokemon) {
   return {
     type: RECEIVE_ALL_POKEMON,
+    pokemon: pokemon
+  };
+};
+var receivePokemon = function receivePokemon(pokemon) {
+  return {
+    type: RECEIVE_POKEMON,
     pokemon: pokemon
   };
 };
@@ -111,6 +121,13 @@ var requestAllPokemon = function requestAllPokemon() {
   return function (dispatch) {
     return _util_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllPokemon"]().then(function (pokemon) {
       return dispatch(receiveAllPokemon(pokemon));
+    });
+  };
+};
+var requestPokemon = function requestPokemon(pokeId) {
+  return function (dispatch) {
+    return _util_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchPokemon"](pokeId).then(function (pokemon) {
+      return dispatch(receivePokemon(pokemon));
     });
   };
 };
@@ -154,16 +171,10 @@ var App = function App() {
 /*!********************************************************!*\
   !*** ./frontend/components/pokemon/pokemon_detail.jsx ***!
   \********************************************************/
-/*! exports provided: PokemonDetail */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PokemonDetail", function() { return PokemonDetail; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var PokemonDetail = function PokemonDetail() {};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/frontend/components/pokemon/pokemon_detail.jsx: Unexpected token (13:8)\n\n\u001b[0m \u001b[90m 11 |\u001b[39m         \u001b[36mreturn\u001b[39m(\u001b[0m\n\u001b[0m \u001b[90m 12 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m         )\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 14 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m     \u001b[0m\n    at Object._raise (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:510:17)\n    at Object.raiseWithData (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:503:17)\n    at Object.raise (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:464:17)\n    at Object.unexpected (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:3368:16)\n    at Object.parseParenAndDistinguishExpression (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:11928:12)\n    at Object.parseExprAtom (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:11549:23)\n    at Object.parseExprAtom (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:7260:20)\n    at Object.parseExprSubscripts (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:11217:23)\n    at Object.parseUpdate (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:11197:21)\n    at Object.parseMaybeUnary (/Users/jnardi1223/Desktop/aa_classwork/W12D1/skeleton-part-ii/node_modules/@babel/parser/lib/index.js:11172:23)");
 
 /***/ }),
 
@@ -441,6 +452,9 @@ var pokemonReducer = function pokemonReducer() {
     case _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_POKEMON"]:
       return Object.assign({}, action.pokemon, state);
 
+    case _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POKEMON"]:
+      return Object.assign({}, action.pokemon, state);
+
     default:
       return state;
   }
@@ -518,16 +532,23 @@ var configureStore = function configureStore() {
 /*!***********************************!*\
   !*** ./frontend/util/api_util.js ***!
   \***********************************/
-/*! exports provided: fetchAllPokemon */
+/*! exports provided: fetchAllPokemon, fetchPokemon */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllPokemon", function() { return fetchAllPokemon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPokemon", function() { return fetchPokemon; });
 var fetchAllPokemon = function fetchAllPokemon() {
   return $.ajax({
     method: "GET",
     url: "/api/pokemon"
+  });
+};
+var fetchPokemon = function fetchPokemon(pokeId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/pokemon/".concat(pokeId)
   });
 };
 
