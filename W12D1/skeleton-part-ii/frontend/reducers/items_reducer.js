@@ -7,7 +7,5 @@ export const itemsReducer = (state = {}, action) => {
         return Object.assign({}, action.items, state)
     default:
         return state
-        
-
     }
 }

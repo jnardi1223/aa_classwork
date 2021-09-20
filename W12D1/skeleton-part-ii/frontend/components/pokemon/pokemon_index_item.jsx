@@ -4,8 +4,8 @@ import {Link} from "react-router-dom"
 export const PokemonIndexItem = (props) => {
     return (
         <li className="pokemon-index-item">
-            <Link to={`/pokemon/${props.key}`}>
-            <span>{props.key}</span>
+            <Link to={`/pokemon/${props.id}`}>
+            <span>{props.id}</span>
             <img src={props.imageUrl}/>
             <span> {props.name} </span>
             </Link>
