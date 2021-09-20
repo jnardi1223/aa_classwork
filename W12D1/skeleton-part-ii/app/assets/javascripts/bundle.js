@@ -111,10 +111,10 @@ var receiveAllPokemon = function receiveAllPokemon(pokemon) {
     pokemon: pokemon
   };
 };
-var receivePokemon = function receivePokemon(pokemon) {
+var receivePokemon = function receivePokemon(payload) {
   return {
     type: RECEIVE_POKEMON,
-    pokemon: pokemon
+    payload: payload
   };
 };
 var requestAllPokemon = function requestAllPokemon() {
@@ -512,11 +512,13 @@ __webpack_require__.r(__webpack_exports__);
 var itemsReducer = function itemsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state);
+  Object.freeze(state); //const newState = Object.assign({}, state)
 
   switch (action.type) {
     case _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POKEMON"]:
-      return Object.assign({}, action.items, state);
+      // newState[action.payload.items.id] = action.payload.items;
+      // return newState
+      return action.payload.items;
 
     default:
       return state;
@@ -544,7 +546,7 @@ var movesReducer = function movesReducer() {
 
   switch (action.type) {
     case _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POKEMON"]:
-      return Object.assign({}, action.moves, state);
+      return action.payload.moves;
 
     default:
       return state;
@@ -569,13 +571,15 @@ var pokemonReducer = function pokemonReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
+  var newState = Object.assign({}, state);
 
   switch (action.type) {
     case _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_POKEMON"]:
       return Object.assign({}, action.pokemon, state);
 
     case _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POKEMON"]:
-      return Object.assign({}, action.pokemon, state);
+      newState[action.payload.pokemon.id] = action.payload.pokemon;
+      return newState;
 
     default:
       return state;

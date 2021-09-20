@@ -8,9 +8,9 @@ export const receiveAllPokemon = (pokemon) => ({
   pokemon
 })
 
-export const receivePokemon = (pokemon) => ({
+export const receivePokemon = (payload) => ({
   type: RECEIVE_POKEMON,
-  pokemon
+  payload
 })
 
 export const requestAllPokemon = () => (dispatch) => (

@@ -5,7 +5,7 @@ export const movesReducer = (state = {}, action) => {
     Object.freeze(state);
     switch(action.type){
     case RECEIVE_POKEMON:
-        return Object.assign({}, action.moves, state)
+        return action.payload.moves
     default:
         return state
     }
