@@ -3,7 +3,7 @@ import { requestPokemon } from '../../actions/pokemon_actions';
 import PokemonDetail from './pokemon_detail';
 
 const mSTP = (state, ownProps) => ({
-    pokemon: state.entities.pokemon[ownProps.match.params.id]
+    pokemon: state.entities.pokemon[ownProps.match.params.pokemonId]
 })
 
 const mDTP = (dispatch) => ({
